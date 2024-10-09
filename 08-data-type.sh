@@ -1,8 +1,9 @@
 #!/bin/bash
 
-NUMBER1=$1
-NUMBER2=$2
+number1=$1
+number2=$2
+number3=$3
 
-SUM=(($NUMBER1+$NUMBER2))
+sum=$(($number1+$number2+$number3)) 
 
-echo "total of $NUMBER1 and $NUMBER2 is: $SUM"
+echo "total of $number1 and $number3 is: $sum"
