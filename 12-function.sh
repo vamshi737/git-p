@@ -21,29 +21,23 @@ if [ $USERID -ne 0 ]
 
 dnf install git -y
 
-VALIDATE $? "Lising Git"
 
-# if [ $? -ne 0 ]
-# then 
-#     echo "git is not installed,going to install it.."
-#     dnf installl git -y
-#     if [ $? -ne 0 ]
-#     then
-#         echo "git installation is not success...check it"
-#         exit 1
-#      else
-#          echo "git installation is success"
-#      fi
-#      else
-#         echo "git is already installed, nothing to do.."
-#     fi
+if [ $? -ne 0 ]
+then 
+    echo "git is not installed,going to install it.."
+    dnf installl git -y
+   VALIDATE $? "Installing Git"
+     else 
+        echo "Git is already installed, nothing to do.."
+    fi
+    
+    dnf list installed Mysql
 
-#     dnf list instakked mysql
-
-# if [ $? -ne 0 ]
-# then
-#     echo "MYSQL is not installed...going to install"
-#     dnf install mysql -y
-
-
-
+if [ $? -ne 0 ]
+then
+    echo "MYSQL is not installed...going to intall"
+    dnf install mysql -y
+   VALIDATE $? "INSTALLING MYSQL"
+    else
+            echo "MY SQL is already installed..nothing to do"
+    fi
