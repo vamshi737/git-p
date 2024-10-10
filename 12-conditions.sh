@@ -8,7 +8,7 @@ read NAME
 NAME_LOWER=$(echo "$NAME" | tr '[:upper:]' '[:lower:]')
 
 # Single condition to check if the name is Vamshi or Shiva
-if [ "$NAME_LOWER" = "vamshi" ] || [ "$NAME_LOWER" = "shiva" ]; then
+if [ "$NAME_LOWER" = "vamshi" ] 
     echo "Hello, $NAME! Welcome!"
 else
     echo "You are not Vamshi or Shiva."
