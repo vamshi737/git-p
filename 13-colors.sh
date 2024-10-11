@@ -23,16 +23,9 @@ VALIDATE(){
     fi
 }
 
-if [ $USERID -ne 0 ]
-    then
-        echo "please run this script with root priveleges"
-        exit 1
-    else
-        echo "$2 is... SUCCESS"
-    fi
+CHECK_ROOT
 
 dnf install git -y
-
 
 if [ $? -ne 0 ]
 then 
