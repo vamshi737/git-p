@@ -10,6 +10,7 @@ USERID=$(id -u)
 R=" \e[31m"
 G=" \e[32m"
 G=" \e[30m"
+Y=" \e[30m"
 
 CHECK_ROOT (){
     if [ $USERID -ne 0 ]
@@ -30,3 +31,16 @@ VALIDATE(){
 }
 
 CHECK_ROOT 
+
+for package in $@
+do
+    dnf list installed $package &>>$LOG_FILE
+    if [ $? -ne 0 ]
+    then
+        echo "$package is not installed,going to install it.." &>>$LOG_FILE
+    dnf install $package -y &>>$LOG_FILE
+   VALIDATE $? "Installing $package"
+   else
+   echo "$package is already $y installed..nothing to do $N" $ &>>$LOG_FILE
+   fi
+   done
