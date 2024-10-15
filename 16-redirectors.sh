@@ -30,8 +30,10 @@ VALIDATE(){
     fi
 }
 
-CHECK_ROOT 
-
+USAGE(){
+    echo -e "$R USAGE :: $N sudo sh 16-redirectors.sh package1 package2.."
+    exit 1
+}
 for package in $@
 do
     dnf list installed $package &>>$LOG_FILE
@@ -41,6 +43,6 @@ do
     dnf install $package -y &>>$LOG_FILE
    VALIDATE $? "Installing $package"
    else
-   echo "$package is already $y installed..nothing to do $N" $ &>>$LOG_FILE
+   echo -e "$package is already $y installed..nothing to do $N" $ &>>$LOG_FILE
    fi
    done
